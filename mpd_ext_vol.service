@@ -1,0 +1,13 @@
+[Unit]
+Description=Music Player Daemon External Volume Control
+PartOf=mpd.service
+After=mpd.service
+
+[Service]
+ExecStart=/usr/local/sbin/mpd_ext_vol /run/mpd.socket
+
+# disallow writing to /usr, /bin, /sbin, ...
+ProtectSystem=yes
+
+[Install]
+WantedBy=multi-user.target
